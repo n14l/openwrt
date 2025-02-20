@@ -5,9 +5,9 @@
 include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
-PKG_VERSION:=2025.01
+PKG_VERSION:=2024.10
 PKG_RELEASE:=1
-PKG_HASH:=cdef7d507c93f1bbd9f015ea9bc21fa074268481405501945abc6f854d5b686f
+PKG_HASH:=b28daf4ac17e43156363078bf510297584137f6df50fced9b12df34f61a92fb0
 
 PKG_MAINTAINER:=Sarah Maedel <openwrt@tbspace.de>
 
@@ -136,9 +136,16 @@ define U-Boot/nanopi-r4s-rk3399
     friendlyarm_nanopi-r4s-enterprise
 endef
 
+define U-Boot/fine-3399-rk3399
+  $(U-Boot/rk3399/Default)
+  NAME:=Fine 3399
+  BUILD_DEVICES:= \
+    rumu3f_fine-3399
+endef
+
 define U-Boot/rock-pi-4-rk3399
   $(U-Boot/rk3399/Default)
-  NAME:=ROCK Pi 4
+  NAME:=Rock Pi 4
   BUILD_DEVICES:= \
     radxa_rock-pi-4a
 endef
@@ -300,6 +307,7 @@ endef
 UBOOT_TARGETS := \
   nanopc-t4-rk3399 \
   nanopi-r4s-rk3399 \
+  fine-3399-rk3399 \
   rock-pi-4-rk3399 \
   rockpro64-rk3399 \
   rock-pi-s-rk3308 \
