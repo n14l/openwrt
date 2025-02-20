@@ -138,6 +138,16 @@ define Device/pine64_rockpro64
 endef
 TARGET_DEVICES += pine64_rockpro64
 
+define Device/rumu3f_fine-3399
+  DEVICE_VENDOR := RUMU3F
+  DEVICE_MODEL := FINE 3399
+  SOC := rk3399
+  UBOOT_DEVICE_NAME := fine-3399-rk3399
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-gpio-button-hotplug kmod-r8168
+endef
+TARGET_DEVICES += rumu3f_fine-3399
+
 define Device/radxa_cm3-io
   DEVICE_VENDOR := Radxa
   DEVICE_MODEL := CM3 IO
